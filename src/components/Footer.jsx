@@ -1,60 +1,56 @@
+import React from 'react';
+import './Footer.css';
+import { FaLinkedin, FaFacebook, FaGithub, FaEnvelope } from 'react-icons/fa';
 
 const Footer = () => {
-    return (
-          <footer className="bg-black text-gray-300 px-8 py-12 ">
-
-        <div className="grid md:grid-cols-5 gap-8 conatainer mx-auto">
-          <div>
-            <h3 className="text-white font-semibold mb-2">
-              PH — Assignment System
-            </h3>
-            <p className="text-sm">
-              PH Assignment system is a platform that centralizes, tracks, and
-              manages requests or issues, converting them into unique
-              "Assignment s" for efficient resolution and communication
-            </p>
-          </div>
-          <div>
-            <h4 className="text-white font-semibold mb-2">University</h4>
-            <ul className="space-y-1 text-sm">
-              <li>About Us</li>
-              <li>Our Mission</li>
-              <li>Contact Administrator</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-white font-semibold mb-2">Services</h4>
-            <ul className="space-y-1 text-sm">
-              <li>Education & Services</li>
-              <li>Student Stories</li>
-              <li>Download Apps</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-white font-semibold mb-2">Information</h4>
-            <ul className="space-y-1 text-sm">
-              <li>Privacy Policy</li>
-              <li>Terms & Conditions</li>
-              <li>Join Us</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-white font-semibold mb-2">Social Links</h4>
-            <ul className="space-y-1 text-sm">
-              <li>@Ph — Assignment System</li>
-              <li>@Ph — Assignment System</li>
-              <li>@Ph — Assignment System</li>
-              <li>support@ph.com</li>
-            </ul>
-          </div>
+  return (
+    <footer className="footer">
+      <div className="footer-top">
+        <div className="footer-col">
+          <h3>CS — Ticket System</h3>
+          <p>
+            Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+          </p>
         </div>
-        <div className="text-left md:text-center text-gray-500 text-sm mt-8">
-          © 2025 Ph — Assignment System.
-          <br className="block md:hidden" /> All rights reserved.
+        <div className="footer-col">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Mission</a></li>
+            <li><a href="#">Contact Sales</a></li>
+          </ul>
         </div>
-
+        <div className="footer-col">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="#">Products & Services</a></li>
+            <li><a href="#">Customer Stories</a></li>
+            <li><a href="#">Download Apps</a></li>
+          </ul>
+        </div>
+        <div className="footer-col">
+          <h3>Information</h3>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Join Us</a></li>
+          </ul>
+        </div>
+        <div className="footer-col">
+          <h3>Social Links</h3>
+          <ul>
+            <li><a href="#"><FaGithub /> @CS — Ticket System</a></li>
+            <li><a href="#"><FaLinkedin /> @CS — Ticket System</a></li>
+            <li><a href="#"><FaFacebook /> @CS — Ticket System</a></li>
+            <li><a href="#"><FaEnvelope /> support@cst.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div className="footer-bottom">
+        <p>&copy; {new Date().getFullYear()} CS — Ticket System. All rights reserved.</p>
+      </div>
     </footer>
-    );
+  );
 };
 
 export default Footer;

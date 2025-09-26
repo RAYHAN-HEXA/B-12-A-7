@@ -1,37 +1,29 @@
-
+import React from 'react';
+import './Navbar.css';
 
 const Navbar = () => {
-    return (
-
-       <div className=" bg-purple-100 shadow-md border-b-[0.5px] border-gray-300">
-     
-      <nav className="px-8 py-4 flex justify-between items-center">
-        <h1 className="md:text-xl text-sm font-bold">PH University</h1>
-        <div className="md:flex hidden items-center gap-6">
-          <a href="#" className="text-gray-600">
-            Home
-          </a>
-          <a href="#" className="text-gray-600">
-            Faculty
-          </a>
-          <a href="#" className="text-gray-600">
-            Students
-          </a>
-
-          <a href="#" className="text-gray-600">
-            Contact
-          </a>
-          <button className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:cursor-pointer">
-            + New Assignment
-          </button>
-        </div>
-        <div className="block md:hidden">
-       
-        </div>
-      </nav>
-   
-    </div>
-    );
+  return (
+    <nav className="navbar">
+      <div className="navbar-left">
+        <span className="logo">
+          <b>CS</b> — <span className="logo-sub">Ticket System</span>
+        </span>
+      </div>
+      <div className="navbar-right">
+        <ul className="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Changelog</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Download</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <button className="new-ticket-btn">
+          <span className="plus">+</span> New Ticket
+        </button>
+      </div>
+    </nav>
+  );
 };
 
 export default Navbar;
