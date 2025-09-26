@@ -9,7 +9,15 @@ const Footer = () => {
         <div className="footer-col">
           <h3>CS — Ticket System</h3>
           <p>
-            Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+      © 2025 TaskManager Inc. All rights reserved.
+
+Built with ❤️, passion, and precision — empowering you to achieve more.
+
+Designed for simplicity. Engineered for productivity.
+
+Every task completed brings you one step closer to your goals.
+
+Transforming ideas into action — one task at a time.
           </p>
         </div>
         <div className="footer-col">
