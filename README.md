@@ -1,16 +1,138 @@
-# React + Vite
+1. What is JSX, and why is it used?
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+JSX (JavaScript XML) is a special syntax used in React that lets you write HTML-like code inside JavaScript.
+It looks like HTML, but it’s actually JavaScript under the hood.
 
-Currently, two official plugins are available:
+Example with JSX:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+function App() {
+  return <h1>Hello, world!</h1>;
+}
 
-## React Compiler
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Without JSX:
 
-## Expanding the ESLint configuration
+function App() {
+  return React.createElement('h1', null, 'Hello, world!');
+}
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+Why we use JSX:
+
+It’s easier to read and write than plain React.createElement calls.
+
+It makes the code look like the structure of the UI.
+
+It allows embedding JavaScript logic inside HTML-like syntax using {}.
+
+2. What is the difference between State and Props?
+
+State and props are both used to store data in React, but they serve different purposes.
+
+Feature	State	Props
+Definition	Internal data managed by the component itself	External data passed to a component
+Can change?	✅ Yes (mutable)	❌ No (read-only)
+Who updates it?	The component itself	The parent component
+Use case	Tracking things like user input, toggles, counters	Passing data and functions from parent to child components
+
+Examples:
+
+Props:
+
+function Greeting({ name }) {
+  return <h1>Hello, {name}!</h1>;
+}
+
+
+State:
+
+import { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  return <button onClick={() => setCount(count + 1)}>{count}</button>;
+}
+
+3. What is the useState Hook, and how does it work?
+
+useState is a React Hook that lets you add state to functional components.
+
+How it works:
+
+Call useState(initialValue).
+
+It returns an array with two things:
+
+The current state value.
+
+A function to update it.
+
+Example:
+
+import { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0); // 0 is the initial state
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
+    </div>
+  );
+}
+
+
+Every time setCount is called, React re-renders the component with the new value.
+
+4. How can you share state between components in React?
+
+To share state, lift the state up to a common parent component and pass it down as props.
+
+Example:
+
+import { useState } from "react";
+
+function Parent() {
+  const [message, setMessage] = useState("Hello!");
+
+  return (
+    <>
+      <Child1 message={message} />
+      <Child2 setMessage={setMessage} />
+    </>
+  );
+}
+
+function Child1({ message }) {
+  return <p>{message}</p>;
+}
+
+function Child2({ setMessage }) {
+  return <button onClick={() => setMessage("Hi there!")}>Change Message</button>;
+}
+
+
+Here:
+
+The state message lives in the Parent component.
+
+Child1 reads it through props.
+
+Child2 updates it using a function passed as a prop.
+
+This keeps data in sync across multiple components.
+
+5. How is event handling done in React?
+
+Event handling in React is similar to HTML, but with camelCase event names and functions instead of strings.
+
+Example:
+
+function Button() {
+  function handleClick() {
+    alert("Button clicked!");
+  }
+
+  return <button onClick={handleClick}>Click Me</button>;
+}
