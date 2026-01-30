@@ -1,0 +1,88 @@
+/* --- Base --- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+:root {
+  --bg: #f0f2f5;
+  --text: #333333;
+  --muted: #4b5563;
+  --panel: #f4f7f9;
+  --border: #e5e7eb;
+  --heading: #2c3e50;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* --- Layout Helpers --- */
+.min-h-screen { min-height: 100vh; }
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-1 { flex: 1; }
+.grid { display: grid; }
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.gap-4 { gap: 1rem; }
+.p-4 { padding: 1rem; }
+
+/* Was global; now large-only */
+.lg\:p-10 { padding: 2.5rem; }
+
+/* --- Typography & Spacing --- */
+.font-semibold { font-weight: 600; }
+.text-sm { font-size: 0.875rem; }
+.text-gray-600 { color: var(--muted); }
+.mt-6 { margin-top: 1.5rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+
+/* --- Borders --- */
+.border {
+  border: 1px solid var(--border); /* give it a style & color so it shows */
+}
+.rounded { border-radius: 0.25rem; }
+
+/* --- Styled Headings & Containers --- */
+.section-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--heading);
+  margin-bottom: 1rem;
+  margin-left: 0;            /* avoid hard left offset on small screens */
+}
+
+.task-status-box,
+.resolved-task-box {
+  background-color: var(--panel);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.resolved-list-item {
+  color: #374151;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+/* --- Responsive Breakpoints --- */
+@media (min-width: 768px) {
+  .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .md\:col-span-1 { grid-column: span 1 / span 1; }
+  .md\:col-span-2 { grid-column: span 2 / span 2; }
+
+  .section-heading { margin-left: 24px; } /* gentle nudge on md+ */
+}
+
+@media (min-width: 1024px) {
+  /* now the large padding only applies at lg screens */
+  .lg\:p-10 { padding: 2.5rem; }
+  .section-heading { margin-left: 50px; } /* your original intent at lg */
+}
